@@ -26,9 +26,15 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row row-filter">
             <div class="col-2 col-xs-3">
-                
+                <select class="col-xs-3 custom-select input-sm" id="column-filter-dropdown-order"
+                    onchange="setSortOrder(this)">
+                    <option value="asc"> Ascending</option>
+                    <option value="desc">Descending</option>
+                </select>
+            </div>
+            <div class="col-2 col-xs-3">
                 <select class="col-xs-3 custom-select input-sm" id="column-filter-dropdown"
                     onchange="setFilterKey(this)"></select>
             </div>
@@ -36,18 +42,18 @@
                 <input type="text" id="filter-input" class="form-control input-sm" onkeyup="searchData(this)"
                     aria-label="Text input with dropdown button" placeholder="Enter search term">
             </div>
-            
-            <div class="col-3">
+
+            <div class="col-2">
                 <button class="btn btn-danger delete-button" data-toggle="modal" data-target="#deleteEmployee">Delete
                     Employee</button>
             </div>
-            <div class="col-3">
+            <div class="col-2">
                 <button class="btn btn-primary" data-toggle="modal" data-target="#createEmployee">Create
                     Employee</button>
             </div>
+            
         </div>
 
-        
         <div class="modal fade" id="deleteEmployee" tabindex="-1" role="dialog" aria-labelledby="deleteEmployeeLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -136,7 +142,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary"  onclick="addEmployee()">Add</button>
+                        <button type="button" class="btn btn-primary" onclick="addEmployee()">Add</button>
                     </div>
                 </div>
             </div>

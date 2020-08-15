@@ -15,6 +15,7 @@ var tableMap = {
 }
 
 var currentColumnFilter = '';
+var currentSortOrder = 'asc';
 var totalCount = 0;
 var pageSize = 8;
 var previousPageSize = 0;
@@ -110,6 +111,22 @@ searchData = (keyword) => {
 
 setFilterKey = (key) => {
   currentColumnFilter = key.value;
+  setSortOrder(currentSortOrder);
+}
+
+setSortOrder = (key) => {
+  currentSortOrder = key.value;
+  if (currentSortOrder == 'asc') {
+    allEmployeeData = allEmployeeData.sort( (a, b) => {
+      return a[currentColumnFilter].toString().localeCompare(b[currentColumnFilter]);
+    })
+  } else {
+    allEmployeeData = allEmployeeData.sort( (a, b) => {
+      return b[currentColumnFilter].toString().localeCompare(a[currentColumnFilter]);
+    })
+  }
+
+  applyPagination(allEmployeeData);
 }
 
 applyPagination = (tableData) => {
@@ -150,19 +167,19 @@ navigateTable = (direction) => {
 
 
 addEmployee = () => {
-  
-  let id  = allEmployeeData.length + 1;
+
+  let id = allEmployeeData.length + 1;
   let addedEmpId = document.getElementById("employeeId").value;
 
-  if(!addedEmpId){
+  if (!addedEmpId) {
     return false;
     alert('Enter employee ID');
   }
 
-  let otherRecord = allEmployeeData.filter( record => record.employeeCode != addedEmpId);
+  let otherRecord = allEmployeeData.filter(record => record.employeeCode != addedEmpId);
 
   let request = {
-    "id" : id,
+    "id": id,
     "jobTitleName": document.getElementById("employeeJT").value,
     "firstName": document.getElementById("firstName").value,
     "lastName": document.getElementById("lastName").value,
@@ -178,28 +195,28 @@ addEmployee = () => {
   allEmployeeData = otherRecord;
   applyPagination(otherRecord);
   $('#createEmployee').modal('hide');
- 
+
   alert('Employee Added Successfully');
 }
 
 deleteEmployee = () => {
-  
+
   let deleteEmpId = document.getElementById("employeeIdDelete").value;
 
-  if(!deleteEmpId){
+  if (!deleteEmpId) {
     return false;
     alert('Enter employee ID to delete');
   }
 
-  let recordMatch = allEmployeeData.filter( record => record.employeeCode == deleteEmpId);
+  let recordMatch = allEmployeeData.filter(record => record.employeeCode == deleteEmpId);
 
-  if(recordMatch.length == 0){
+  if (recordMatch.length == 0) {
     console.log('record not present');
     alert('Employee ID not present');
     return false;
   }
 
-  let otherRecord = allEmployeeData.filter( record => record.employeeCode != deleteEmpId);
+  let otherRecord = allEmployeeData.filter(record => record.employeeCode != deleteEmpId);
   allEmployeeData = otherRecord;
   applyPagination(otherRecord);
   $('#deleteEmployee').modal('hide');
