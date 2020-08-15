@@ -1,0 +1,188 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<div class="section-header">
+    <nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
+        <i class="fa fa-university" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;
+        <span> Welcome to ABC Bank</span>
+
+        <ul class="navbar-nav">
+        </ul>
+    </nav>
+</div>
+
+<div class="section-table">
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <h3 class="table-heading">Employees</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-2 col-xs-3">
+                
+                <select class="col-xs-3 custom-select input-sm" id="column-filter-dropdown"
+                    onchange="setFilterKey(this)"></select>
+            </div>
+            <div class="col-4 col-xs-3 ">
+                <input type="text" id="filter-input" class="form-control input-sm" onkeyup="searchData(this)"
+                    aria-label="Text input with dropdown button" placeholder="Enter search term">
+            </div>
+            
+            <div class="col-3">
+                <button class="btn btn-danger delete-button" data-toggle="modal" data-target="#deleteEmployee">Delete
+                    Employee</button>
+            </div>
+            <div class="col-3">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#createEmployee">Create
+                    Employee</button>
+            </div>
+        </div>
+
+        
+        <div class="modal fade" id="deleteEmployee" tabindex="-1" role="dialog" aria-labelledby="deleteEmployeeLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteEmployeeLabel">Delete Employee</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body modal-body-delete">
+                        <form>
+                            <div class="form-group">
+                                <label for="employeeId">ID</label>
+                                <input class="form-control" id="employeeIdDelete" placeholder="Enter ID to Delete">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-danger" onclick="deleteEmployee()">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="createEmployee" tabindex="-1" role="dialog" aria-labelledby="createEmployeeLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="createEmployeeLabel">Create Employee</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="employeeId">ID</label>
+                                <input class="form-control" id="employeeId" placeholder="Enter ID">
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="firstName">First Name</label>
+                                        <input class="form-control" id="firstName" placeholder="First Name">
+
+                                    </div>
+                                    <div class="col">
+                                        <label for="lastName">Last Name</label>
+                                        <input class="form-control" id="lastName" placeholder="Last Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="employeeJT">Job Title</label>
+                                <input class="form-control" id="employeeJT" placeholder="Job Title">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="employeeEmail">Email</label>
+                                <input type="email" class="form-control" id="employeeEmail"
+                                    placeholder="Employee Email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="employeePhoneNumber">Phone Number</label>
+                                <input type="number" class="form-control" id="employeePhoneNumber"
+                                    placeholder="Job Title">
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="region">Region</label>
+                                        <input class="form-control" id="region" placeholder="Region">
+                                    </div>
+                                    <div class="col">
+                                        <label for="employeeDOB">Date of Birth</label>
+                                        <input class="form-control" id="employeeDOB" placeholder="dd/mm/yyyy">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary"  onclick="addEmployee()">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-table">
+            <label id="table-label-count"></label>
+            <table class="table table-fixed"></table>
+        </div>
+        <div class="row pagination-row">
+            <button class="btn btn-info" onclick="navigateTable(0)"><i class="fa fa-arrow-left"
+                    aria-hidden="true"></i></i></button>
+            <button class="btn btn-info" onclick="navigateTable(1)"><i class="fa fa-arrow-right"
+                    aria-hidden="true"></i></i></button>
+        </div>
+
+        <div class="row">
+            <div class="container" id="employee-information">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--
+
+<div class="section-foorter">
+    <nav class="navbar navbar-expand-sm bg-secondary navbar-dark"></nav>
+</div>
+
+-->
+<script src='https://code.jquery.com/jquery-3.1.0.min.js'></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<script type="text/javascript" src="./index.js"></script>
+<link rel="stylesheet" type="text/css" href="./index.css">
+
+
+</html>

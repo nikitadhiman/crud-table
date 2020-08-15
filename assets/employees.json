@@ -1,0 +1,86 @@
+[
+    {
+        "id": 4,
+        "jobTitleName": "Developer",
+        "firstName": "Arya",
+        "lastName": "Stark",
+        "preferredFullName": "Arya Stark",
+        "employeeCode": "E1",
+        "region": "CA",
+        "dob": "01/10/1993",
+        "phoneNumber": "408-1234567",
+        "emailAddress": "arya.stark@gmail.com"
+    },
+    {
+        "id": 5,
+        "jobTitleName": "Developer",
+        "firstName": "Sansa",
+        "lastName": "Stark",
+        "preferredFullName": "Sansa Stark",
+        "employeeCode": "E2",
+        "region": "CA",
+        "dob": "01/10/1992",
+        "phoneNumber": "408-1111111",
+        "emailAddress": "sansa.stark@gmail.com"
+    },
+    {
+        "id": 6,
+        "jobTitleName": "Developer",
+        "firstName": "Rob",
+        "lastName": "Stark",
+        "preferredFullName": "Rob Stark",
+        "employeeCode": "E2",
+        "region": "CA",
+        "dob": "01/10/1992",
+        "phoneNumber": "408-1111111",
+        "emailAddress": "rob.stark@gmail.com"
+    },
+    {
+        "id": 7,
+        "jobTitleName": "Developer",
+        "firstName": "Jon",
+        "lastName": "Snow",
+        "preferredFullName": "Jon Snow",
+        "employeeCode": "E2",
+        "region": "CA",
+        "dob": "01/10/1992",
+        "phoneNumber": "408-1111111",
+        "emailAddress": "jon.snow@gmail.com"
+    },
+    {
+        "id": 8,
+        "jobTitleName": "Program Directory",
+        "firstName": "Ned",
+        "lastName": "Stark",
+        "dob": "05/12/1975",
+        "preferredFullName": "Ned Stark",
+        "employeeCode": "E3",
+        "region": "CA",
+        "phoneNumber": "408-2222222",
+        "emailAddress": "ned.stark@gmail.com"
+    },
+    {
+        "id": 9,
+        "jobTitleName": "Program Directory",
+        "firstName": "Cat",
+        "lastName": "Stark",
+        "dob": "05/12/1975",
+        "preferredFullName": "Cat Stark",
+        "employeeCode": "E3",
+        "region": "CA",
+        "phoneNumber": "408-2222222",
+        "emailAddress": "cat.stark@gmail.com"
+    },
+    {
+        "id": 10,
+        "jobTitleName": "Program Directory",
+        "firstName": "Tyrion",
+        "lastName": "Lannister",
+        "dob": "05/12/1975",
+        "preferredFullName": "Tyrion Lannister",
+        "employeeCode": "E3",
+        "region": "CA",
+        "phoneNumber": "408-2222222",
+        "emailAddress": "tyrion.lannister@gmail.com"
+    }
+]

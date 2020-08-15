@@ -1,0 +1,19 @@
+{
+  "name": "crud-table",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikitadhiman/crud-table.git"
+  },
+  "author": "Nikita Dhiman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikitadhiman/crud-table/issues"
+  },
+  "homepage": "https://github.com/nikitadhiman/crud-table#readme"
+}
